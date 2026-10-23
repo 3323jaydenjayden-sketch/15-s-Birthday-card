@@ -57,7 +57,6 @@
         </div>
         <div><h1 id="txt"></h1><button class="btn" id="btn" onclick="go()">點擊釋放驚喜 ✨</button></div>
     </div>
-    <!-- 拿掉貓咪後的乾淨隱藏面板 -->
     <div class="secret-box" id="secretBox"><div id="askText"></div><div class="ask-btns" id="btnGroup"><button class="choice-btn btn-yes" onclick="selectYes()">Yes</button><button class="choice-btn btn-no" id="noBtn" onmouseover="escapeNo()" ontouchstart="escapeNo()">No</button></div></div>
     <script>
         window.addEventListener('mousemove', (e) => {
@@ -73,17 +72,40 @@
         }
         const bTimer = setInterval(() => mkBal(false), 3500);
 
+        // 替換為你指定的最新日常整人問句
         function go() {
             clearInterval(bTimer); document.body.classList.add('active'); document.getElementById('mainCard').classList.add('fade-out');
             for (let i = 0; i < 60; i++) { let a = Math.random()*Math.PI*2, sp = Math.random()*150+50; mkP(window.innerWidth/2, window.innerHeight/2, Math.cos(a)*sp, Math.sin(a)*sp, ['#fff','#fff5eb','#ffb3c1','#ffd166'][Math.floor(Math.random()*4)], Math.random()*4+2); }
             for (let i = 0; i < 10; i++) setTimeout(() => mkBal(true), i*150);
             setInterval(() => mkBal(true), 1200);
-            setTimeout(() => { document.getElementById('secretBox').classList.add('reveal'); type(document.getElementById('askText'), ["劉芯慈！祝妳生日快樂！🎂", "這塊網頁蛋糕可是我純手工敲程式碼做出來的！", "", "看在我幫妳寫的份上"", "妳...答應明天一定要請我喝一杯飲料或吃福利社的美食喔？"], () => { document.getElementById('btnGroup').classList.add('show'); }, 80); }, 800);
+
+            setTimeout(() => {
+                document.getElementById('secretBox').classList.add('reveal');
+                type(document.getElementById('askText'), [
+                    "劉芯慈！祝妳生日快樂！🎂",
+                    "這塊網頁蛋糕可是我純手工敲程式碼做出來的！",
+                    "",
+                    "看在我幫妳寫的份上，",
+                    "妳...答應明天一定要請我喝一杯飲料或吃福利社的美食喔？"
+                ], () => {
+                    document.getElementById('btnGroup').classList.add('show');
+                }, 80);
+            }, 800);
         }
+
         function escapeNo() { const btn = document.getElementById('noBtn'); const x = Math.random()*(window.innerWidth-120)-(window.innerWidth/2-60), y = Math.random()*(window.innerHeight-80)-(window.innerHeight/2-40); btn.style.transform = `translate(${x}px, ${y}px)`; }
+
+        // 替換為你指定的 Yes 點擊回應
         function selectYes() {
-            document.getElementById('btnGroup').classList.remove('show'); type(document.getElementById('askText'), ["❤️ 歐耶！白紙黑字妳答應囉，不准賴皮！🤪", "", "開玩笑的，祝妳生日快樂！", "希望妳接下來的每一天都順心如意，", "天天開心！✨"], null, 80);
-            // 移除貓咪顯示邏輯，純粹下起浪漫的愛心雨
+            document.getElementById('btnGroup').classList.remove('show');
+            type(document.getElementById('askText'), [
+                "❤️ 歐耶！白紙黑字妳答應囉，不准賴皮！🤪",
+                "",
+                "開玩笑的，祝妳生日快樂！",
+                "希望妳接下來的每一天都順心如意，",
+                "天天開心！✨"
+            ], null, 80);
+
             setInterval(() => { const h = document.createElement('div'); h.className = 'hrt'; h.innerHTML = '❤️'; h.style.left = Math.random()*90+5+'vw'; h.style.animationDuration = (Math.random()*2+4)+'s'; document.body.appendChild(h); setTimeout(() => h.remove(), 6000); }, 200);
         }
 
