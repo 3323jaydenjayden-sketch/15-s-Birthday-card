@@ -78,7 +78,7 @@
             for (let i = 0; i < 60; i++) { let a = Math.random()*Math.PI*2, sp = Math.random()*150+50; mkP(window.innerWidth/2, window.innerHeight/2, Math.cos(a)*sp, Math.sin(a)*sp, ['#fff','#fff5eb','#ffb3c1','#ffd166'][Math.floor(Math.random()*4)], Math.random()*4+2); }
             for (let i = 0; i < 10; i++) setTimeout(() => mkBal(true), i*150);
             setInterval(() => mkBal(true), 1200);
-            setTimeout(() => { document.getElementById('secretBox').classList.add('reveal'); type(document.getElementById('askText'), ["劉芯慈！祝妳生日快樂！🎂", "網頁蛋糕免費，但真正的蛋糕需要代價...", "", "那...妳答應明天一定要請我喝一杯飲料或吃福利社的美食喔？"], () => { document.getElementById('btnGroup').classList.add('show'); }, 80); }, 800);
+            setTimeout(() => { document.getElementById('secretBox').classList.add('reveal'); type(document.getElementById('askText'), ["劉芯慈！祝妳生日快樂！🎂", "這塊網頁蛋糕可是我純手工敲程式碼做出來的！", "", "看在我幫妳寫的份上"", "妳...答應明天一定要請我喝一杯飲料或吃福利社的美食喔？"], () => { document.getElementById('btnGroup').classList.add('show'); }, 80); }, 800);
         }
         function escapeNo() { const btn = document.getElementById('noBtn'); const x = Math.random()*(window.innerWidth-120)-(window.innerWidth/2-60), y = Math.random()*(window.innerHeight-80)-(window.innerHeight/2-40); btn.style.transform = `translate(${x}px, ${y}px)`; }
         function selectYes() {
